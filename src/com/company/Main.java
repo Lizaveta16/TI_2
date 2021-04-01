@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -100,7 +98,7 @@ public class Main {
         ArrayList<String> result = new ArrayList< >();
 
         for (int i = 0; i < s.length(); i++) {
-            long index = alphabet.indexOf(s.charAt(i));
+            long index = (int) s.charAt(i);
             Long res = power(index, e, r);
             result.add(res.toString());
         }
@@ -112,8 +110,9 @@ public class Main {
 
         for (String item : input) {
             long b = Long.parseLong(item);
-            int index = (int) (power(b, d, r) % alphabet.length());
-            result += alphabet.charAt(index);
+            int index = (int) (power(b, d, r) );
+            result += (char) index;
+
         }
 
         return result;
